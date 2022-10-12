@@ -1,3 +1,3 @@
-export const api_key = "f5ccc128c66292e3b8ddaa1045c6387b";
+export const api_key = "DsykTVPUWfq4qwb8uRpis7ltj6KGz8Rr";
 export const url_base_weather =
-  "http://api.openweathermap.org/data/2.5/weather";
+  "https://api.giphy.com/v1/gifs/search";

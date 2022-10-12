@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ForecastItem from './ForecastItem';
-import transformForecast from './../services/transformForecast';
 import './styles.css';
-
+import getUrlGiphy from '../services/getUrlGiphy' 
 // const days = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
 
 // const data = {
@@ -13,8 +12,7 @@ import './styles.css';
 //     wind: 'normal',
 // };
 
-const api_key = 'f5ccc128c66292e3b8ddaa1045c6387b';
-const url = 'http://api.openweathermap.org/data/2.5/forecast';
+
 
 class ForecastExtended extends Component {
     constructor() {
@@ -34,24 +32,22 @@ class ForecastExtended extends Component {
     }
 
     updateCity = (city) => {
-        const url_forecast = `${url}?q=${city}&appid=${api_key}`;
+
+        const url_forecast = getUrlGiphy(city);
         fetch(url_forecast)
             .then((data) => data.json())
             .then((weather_data) => {
                 console.log(weather_data);
-                const forecastData = transformForecast(weather_data);
-                console.log(forecastData);
+                const forecastData = weather_data.data;
                 this.setState({ forecastData });
             });
     };
 
     renderForecastItemDays(forecastData) {
+        console.log(forecastData);
         return forecastData.map((forecast) => (
             <ForecastItem
-                key={`${forecast.weekDay}${forecast.hour}`}
-                weekDay={forecast.weekDay}
-                hour={forecast.hour}
-                data={forecast.data}
+                data={forecast}
             ></ForecastItem>
         ));
     }

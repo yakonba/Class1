@@ -6,16 +6,10 @@ import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
 import LocationList from './components/LocationList';
 import ForecastExtended from './components/ForecastExtended';
+import { RICK, ROBERT, CLOUD, SUN } from './constants/finds';
 import './App.css';
 
-const cities = [
-    'Buenos Aires,ar',
-    'Washington,us',
-    'Bogota,col',
-    'Ciudad de México,mx',
-    'Madrid,es',
-    'Lima,pe',
-];
+const cities = [RICK, ROBERT, CLOUD, SUN];
 
 class App extends Component {
     constructor() {
@@ -34,7 +28,7 @@ class App extends Component {
                     <AppBar position="sticky">
                         <Toolbar>
                             <Typography variant="subtitle1" color="inherit">
-                                Weather App
+                                Giphy App
                             </Typography>
                         </Toolbar>
                     </AppBar>
