@@ -8,8 +8,10 @@ import LocationList from './components/LocationList';
 import ForecastExtended from './components/ForecastExtended';
 import { RICK, ROBERT, CLOUD, SUN } from './constants/finds';
 import './App.css';
+import Title from './components/Title';
 
 const cities = [RICK, ROBERT, CLOUD, SUN];
+const titulo = 'Giphy App';
 
 class App extends Component {
     constructor() {
@@ -20,6 +22,13 @@ class App extends Component {
         this.setState({ city });
         console.log(`handleSelectedLocation ${city}`);
     };
+    handleText = () => {
+        return (
+            <>
+                <h1>Hola</h1>
+            </>
+        );
+    };
     render() {
         const { city } = this.state;
         return (
@@ -28,7 +37,7 @@ class App extends Component {
                     <AppBar position="sticky">
                         <Toolbar>
                             <Typography variant="subtitle1" color="inherit">
-                                Giphy App
+                                <Title texto={titulo} style={{ color: 'gray' }} />
                             </Typography>
                         </Toolbar>
                     </AppBar>
